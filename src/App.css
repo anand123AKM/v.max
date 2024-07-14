@@ -567,9 +567,11 @@ margin-top: 40px;
 @media screen and (max-width: 600px) {
 .select-video {
     width: 107px;
+      margin-left: 35px;
   }
   .input-comment{
       width: 180px;
+    
   }
         .threedot {
           margin-top: 0px;
