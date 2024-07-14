@@ -9,7 +9,7 @@ function Home({ theme }) {
     <>
       <HeaderText theme={theme} />
       <Tabs variant="soft-rounded" colorScheme="red" defaultIndex={0}>
-        <TabList ml={18} mb={6} mt={10}>
+        <TabList className="ml" mb={6} mt={10}>
           <Tab className="tabB">WATCH👇 </Tab>
         </TabList>
         <TabPanels>
