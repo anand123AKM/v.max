@@ -669,7 +669,7 @@ padding-right: 5px;
 }
 @media screen and (max-width: 800px) {
   .lightmode{
-    margin-top: 10px;
+    margin-top: 15px;
   }
 }
 .room-heading{
@@ -697,6 +697,7 @@ padding-right: 5px;
   font-size: 15px;
   font-weight: bold;
   justify-content: center;
+  align-items: center;
 }
 
 .light .room-heading h4{
