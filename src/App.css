@@ -667,6 +667,11 @@ padding-right: 5px;
   height: 50px;
   width: 30px;
 }
+@media screen and (max-width: 800px) {
+  .lightmode{
+    margin-top: 10px;
+  }
+}
 .room-heading{
   display: flex;
   flex-direction: column;
@@ -691,6 +696,7 @@ padding-right: 5px;
 .room-heading h4{
   font-size: 15px;
   font-weight: bold;
+  justify-content: center;
 }
 
 .light .room-heading h4{
@@ -720,7 +726,7 @@ padding-right: 5px;
   .room-form{
     width: 90%;
       height: 70%;
-  }  
+  }
 }
 @media screen and (min-width: 800px) {
   .room-form{
@@ -728,6 +734,7 @@ padding-right: 5px;
       height: 50%;
   }  
 }
+
 
 .light .room-form{
   background: linear-gradient(to right,
