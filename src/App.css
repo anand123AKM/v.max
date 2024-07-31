@@ -613,7 +613,7 @@ margin-top: 40px;
     rgb(220, 219, 227),
     rgb(156, 182, 227));
     color: #000;
-    border:2px solid black;
+    border:1px solid black;
 }
 
 .dark .com-box{
@@ -621,7 +621,7 @@ margin-top: 40px;
     rgb(52, 52, 53),
     rgb(1, 1, 32));
     color: white;
-    border:2px solid white;
+    border:1px solid white;
 }
 
 .com-text{
