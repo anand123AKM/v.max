@@ -51,7 +51,7 @@ function Navbar({ theme, setTheme }) {
               />
               <Tab className={`${theme} col`}>Home</Tab>
               <Tab className={`${theme} col`}>Contact</Tab>
-              <Tab className={`${theme} col`}>About Us</Tab>
+              <Tab className={`${theme} col`}>About </Tab>
               <Profile theme={theme} setTabIndex={setTabIndex} />
             </TabList>
           </Flex>

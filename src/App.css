@@ -192,7 +192,7 @@ justify-content: center;
 }
 @media screen and (max-width:800px) {
   .col{
-    height: 30px;
+    height: 40px;
   }
 }
 
@@ -672,11 +672,7 @@ padding-right: 5px;
   height: 50px;
   width: 30px;
 }
-@media screen and (max-width: 800px) {
-  .lightmode{
-    margin-top: 15px;
-  }
-}
+
 .room-heading{
   display: flex;
   flex-direction: column;
