@@ -190,6 +190,11 @@ justify-content: center;
 .col{
   margin: 4px;
 }
+@media screen and (max-width:800px) {
+  .col{
+    height: 30px;
+  }
+}
 
 .logo-7{
   display: flex;
