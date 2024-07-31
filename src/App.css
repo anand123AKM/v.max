@@ -778,6 +778,7 @@ padding-right: 5px;
   justify-content: center;
   border-radius: 10px;
   border: 2px solid;
+  width: 90%;
 }
 
 .light .room-code{
