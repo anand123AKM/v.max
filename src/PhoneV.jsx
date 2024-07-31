@@ -183,7 +183,7 @@ function PhoneV({ theme }) {
           {selectedVideo && (
             <AspectRatio
               maxW="625px"
-              marginTop={"20px"}
+              marginTop={"18px"}
               ratio={2 / 1}
               position="relative"
               className="aspect-ratio"
