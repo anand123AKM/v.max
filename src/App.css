@@ -509,8 +509,9 @@ margin-top: 40px;
   margin-top: 10px;
   margin-left: 20px;
   width: 250px;
-  height: 40px;
+  height: 35px;
   border-radius: 25px;
+  font-size: 10px;
 }
 .comment h1{
   margin-top: 5px;
@@ -548,7 +549,6 @@ margin-top: 40px;
   flex-direction: column;
   align-items: start;
   margin-top: 10px;
-  margin-left: 40px;
   font-size: 25px;
 }
 
@@ -586,4 +586,237 @@ margin-top: 40px;
 
 .ml{
   margin-left: 25px;
+}
+
+.com-box{
+  display: flex;
+  flex-direction: row;
+  margin-top: 15px;
+  margin-left: -20px;
+  width: auto;
+  height: 35px;
+  align-items: center;
+ text-align: left;
+  border-radius: 15px;
+  border-top-left-radius: 45px;
+  border-bottom-right-radius: 45px;
+  overflow: hidden; 
+}
+
+.light .com-box{
+  background: linear-gradient(to right,
+    rgb(220, 219, 227),
+    rgb(156, 182, 227));
+    color: #000;
+    border:2px solid black;
+}
+
+.dark .com-box{
+  background: linear-gradient(to right,
+    rgb(52, 52, 53),
+    rgb(1, 1, 32));
+    color: white;
+    border:2px solid white;
+}
+
+.com-text{
+  margin-right: 10px;
+  font-size: 15px;
+    white-space: nowrap;
+
+}
+
+.light .com-text{
+  color: #000;
+}
+
+.dark .com-text{
+  color: white;
+}
+
+
+
+.comboxover {
+  max-height: 10px;
+  overflow-y: auto;
+  overflow-x: auto;
+  padding-left: 20px;
+}
+.comboxover::-webkit-scrollbar {
+  display: none;
+}
+
+
+
+@media (max-width: 600px) {
+  .com-box {
+    width: auto;
+padding-right: 5px;
+  }
+
+  .com-text {
+    font-size: 10px;
+  }
+
+  .comboxover{
+    max-height: 220px;
+  }
+}
+
+.lightmode{
+  height: 50px;
+  width: 30px;
+}
+.room-heading{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.room-heading h1{
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.light .room-heading{
+  color: #000;
+}
+
+.dark .room-heading{
+  color: white;
+}
+
+.room-heading h4{
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.light .room-heading h4{
+  color: #000;
+}
+
+.dark .room-heading h4{
+  color: white;
+}
+
+.form-divv{
+  display: flex;
+  justify-content: center;
+}
+
+.room-form{
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+@media screen and (max-width: 800px) {
+  .room-form{
+    width: 90%;
+      height: 70%;
+  }  
+}
+@media screen and (min-width: 800px) {
+  .room-form{
+    width: 40%;
+      height: 50%;
+  }  
+}
+
+.light .room-form{
+  background: linear-gradient(to right,
+    rgb(204, 202, 222),
+    rgb(115, 148, 205));
+    color: #000;
+}
+
+.dark .room-form{
+  background: linear-gradient(to right,
+    rgb(52, 52, 53),
+    rgb(1, 1, 32));
+    color: white;
+}
+
+.room{
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.light .room{
+  background: linear-gradient(to right,
+    rgb(220, 219, 227),
+    rgb(156, 182, 227));
+    color: #000;
+}
+
+.dark .room{
+  background: linear-gradient(to right,
+    rgb(52, 52, 53),
+    rgb(1, 1, 32));
+    color: white;
+}
+
+.room-code{
+  font-size: 22px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  float: center;
+  justify-content: center;
+  border-radius: 10px;
+  border: 2px solid;
+}
+
+.light .room-code{
+  color: #000000;
+  border-color:black;
+}
+
+.dark .room-code{
+  color: rgb(0, 0, 0);
+  border-color:white;
+}
+.room-code::placeholder{
+  font-size: 15px;  
+}
+
+.room-button{
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  float: center;
+  justify-content: center;
+  border: 2px solid;
+  border-radius: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 5px;
+} 
+
+.light .room-button{
+  color: white;
+  background-color:#b50000;
+  border-color:black;
+}
+
+
+.dark .room-button{
+color:white;
+background-color:#b50000;
+  border-color:white;
 }

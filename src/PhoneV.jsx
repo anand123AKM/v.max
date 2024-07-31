@@ -5,8 +5,13 @@ import { PointsContext } from "./PointsContext";
 import { useContext } from "react";
 import video from "./first-video.mp4";
 import api from "./videoAPI";
+import { NameContextE } from "./NameContextE";
+import { AvatarGroup, MenuButton, Avatar, Menu } from "@chakra-ui/react";
+import { NameContext } from "./NameContext";
 
 function PhoneV({ theme }) {
+  const name = useContext(NameContext);
+  const { nameValue } = useContext(NameContextE);
   const { handlePointsChange } = useContext(PointsContext);
   const [selectedVideo, setSelectedVideo] = useState(video);
   const [videoQuality, setVideoQuality] = useState("320p");
@@ -158,6 +163,13 @@ function PhoneV({ theme }) {
     }
   };
 
+  const CurrentUser = {
+    result: {
+      Name: name || nameValue,
+      joinedOn: "2021-09-01T00:00:00.000Z",
+    },
+  };
+
   return (
     <>
       <div className="lv">
@@ -228,14 +240,37 @@ function PhoneV({ theme }) {
               onKeyDown={handleComments}
             />
           </div>
-          <div className="comments-list">
-            {comments.map((comment, index) => (
-              <div key={index}>
-                <ul>
-                  <li>{comment.text}</li>
-                </ul>
-              </div>
-            ))}
+          <div className="comboxover">
+            <div className="comments-list">
+              {comments.map((comment, index) => (
+                <div className="comboxover">
+                  <div className="com-box" key={index}>
+                    <Menu>
+                      <MenuButton>
+                        <AvatarGroup ml={-2} mr={2}>
+                          <div className={`channel-logo ${theme}`}>
+                            {CurrentUser ? (
+                              <div className={`channel-logo ${theme}`}>
+                                <>
+                                  {CurrentUser?.result.Name.charAt(
+                                    0
+                                  ).toUpperCase()}
+                                </>
+                              </div>
+                            ) : (
+                              <>
+                                <Avatar bg="teal.500" />
+                              </>
+                            )}
+                          </div>
+                        </AvatarGroup>
+                      </MenuButton>
+                    </Menu>
+                    <div className="com-text"> {comment.text}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
         <div className="video-containerAll divw2">

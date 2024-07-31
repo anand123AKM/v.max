@@ -61,7 +61,7 @@ function App() {
           currentHour < 12
         ) {
           setTheme("light");
-        } else if (currentHour === 13) {
+        } else if (currentHour === 23) {
           setIsMaintenanceTime(true);
         } else {
           setTheme("dark");
@@ -74,14 +74,6 @@ function App() {
     fetchLocation();
   }, []);
 
-  if (isMaintenanceTime) {
-    return (
-      <h1>
-        Website is under maintenance from 1 PM to 2 PM. Please come back later.
-      </h1>
-    );
-  }
-
   return (
     <EmailContext.Provider value={{ emailValue, SetemailValue }}>
       <NameContextE.Provider value={{ nameValue, SetnameValue }}>
@@ -89,7 +81,7 @@ function App() {
           <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
             <div className={`main-div ${theme}`}>
               {isLoggedIn ? (
-                <Navbar theme={theme} />
+                <Navbar setTheme={setTheme} theme={theme} />
               ) : (
                 <div className="log">
                   <Login theme={theme} />

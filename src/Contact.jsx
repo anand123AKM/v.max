@@ -12,9 +12,20 @@ import { useState } from "react";
 
 function Contact({ theme }) {
   const [showAlert, setShowAlert] = useState(false);
+  const [input1, setInput1] = useState("");
+  const [input2, setInput2] = useState("");
+  const [input3, setInput3] = useState("");
 
   const handleClick = () => {
-    setShowAlert(true);
+    if (input1.length > 0 && input2.length > 0 && input3.length > 0) {
+      setShowAlert(true);
+      setInput1("");
+      setInput2("");
+      setInput3("");
+    } else {
+      alert("Please fill all the fields");
+    }
+
     setTimeout(() => {
       setShowAlert(false);
     }, 3000);
@@ -39,6 +50,8 @@ function Contact({ theme }) {
               className={`${theme} inp2`}
               type="text"
               placeholder="Name"
+              value={input1}
+              onChange={(e) => setInput1(e.target.value)}
               size="lg"
             />
           </FormControl>
@@ -47,8 +60,10 @@ function Contact({ theme }) {
             <Input
               className={`${theme} inp2`}
               type="email"
-              placeholder="test@test.com"
+              placeholder="original email"
               size="lg"
+              value={input3}
+              onChange={(e) => setInput3(e.target.value)}
             />
           </FormControl>
           <FormControl isRequired>
@@ -57,6 +72,8 @@ function Contact({ theme }) {
               className={`${theme} inp1`}
               type="text"
               placeholder="Message"
+              value={input2}
+              onChange={(e) => setInput2(e.target.value)}
             />
           </FormControl>
           {showAlert && (
@@ -66,8 +83,11 @@ function Contact({ theme }) {
               marginTop={5}
               status="success"
               variant="subtle"
+              color={"red"}
+              background={"none"}
+              fontWeight={"bold"}
             >
-              <AlertIcon />
+              <AlertIcon color={"red"} />
               Message Send!
             </Alert>
           )}

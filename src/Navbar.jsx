@@ -18,10 +18,11 @@ import About from "./About";
 import Profile from "./profile";
 import Login from "./Login";
 import { PointsContext } from "./PointsContext";
+// import { Switch } from "@chakra-ui/react";
+import { MdLightMode } from "react-icons/md";
 
-function Navbar({ theme }) {
+function Navbar({ theme, setTheme }) {
   const [points, setPoints] = useState(0);
-
   const handlePointsChange = (newPoints) => {
     setPoints((prevPoints) => prevPoints + newPoints);
   };
@@ -40,7 +41,14 @@ function Navbar({ theme }) {
             <Heading className={`header2  ${theme}`}>
               <img src={theme === "light" ? light : dark} alt="Logo" />
             </Heading>
+
             <TabList className={`${theme} tablist`}>
+              <MdLightMode
+                className="lightmode"
+                onClick={() => {
+                  setTheme(theme === "light" ? "dark" : "light");
+                }}
+              />
               <Tab className={`${theme} col`}>Home</Tab>
               <Tab className={`${theme} col`}>Contact</Tab>
               <Tab className={`${theme} col`}>About Us</Tab>
