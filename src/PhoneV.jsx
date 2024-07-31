@@ -174,12 +174,12 @@ function PhoneV({ theme }) {
     <>
       <div className="lv">
         <div className="divw">
-          <input
+          {/* <input
             className={`${theme} select-video`}
             type="file"
             accept="video/*"
             onChange={handleVideoChange}
-          />
+          /> */}
           {selectedVideo && (
             <AspectRatio
               maxW="625px"
