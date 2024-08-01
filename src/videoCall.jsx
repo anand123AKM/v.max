@@ -19,7 +19,7 @@ function VideoCall() {
         <>
           <div className="room-heading">
             <h1>V-MAX CAll</h1>
-            <h4>Meet Your Friends & Family and enjoy your day here</h4>
+            <h4>Meet Your Friends & Family and enjoy your day </h4>
           </div>
           <div className="form-divv">
             <form className="room-form" onSubmit={handleFormSubmit}>
