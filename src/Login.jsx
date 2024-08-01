@@ -212,27 +212,20 @@ export default function Login({ theme }) {
             />
             {southIndianStates.includes(location) ? (
               <>
-                <FormLabel className="inp">Email</FormLabel>
+                <FormLabel className="inp">Phone</FormLabel>
                 <InputGroup>
                   <Input
                     className={`${theme} inp2`}
-                    type="email"
-                    id="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                    name="email"
-                    placeholder="Email"
+                    type="tel"
+                    name="phone"
+                    placeholder="phone no."
                     color={"white"}
+                    onChange={handleChange}
                   />
                   <InputRightElement width="4.5rem">
-                    <Button
-                      id="request-otp"
-                      onClick={requestOtp}
-                      h="1.75rem"
-                      size="sm"
-                    >
+                    <Button h="1.75rem" size="sm" onClick={onSignInSubmit}>
                       OTP
+                      {otpSent && <span style={{ color: "green" }}>✔</span>}
                     </Button>
                   </InputRightElement>
                 </InputGroup>
@@ -297,3 +290,28 @@ export default function Login({ theme }) {
     </>
   );
 }
+
+// <FormLabel className="inp">Email</FormLabel>
+//               <InputGroup>
+//                 <Input
+//                   className={`${theme} inp2`}
+//                   type="email"
+//                   id="email"
+//                   value={email}
+//                   onChange={(e) => setEmail(e.target.value)}
+//                   required
+//                   name="email"
+//                   placeholder="Email"
+//                   color={"white"}
+//                 />
+//                 <InputRightElement width="4.5rem">
+//                   <Button
+//                     id="request-otp"
+//                     onClick={requestOtp}
+//                     h="1.75rem"
+//                     size="sm"
+//                   >
+//                     OTP
+//                   </Button>
+//                 </InputRightElement>
+//               </InputGroup>
