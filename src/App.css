@@ -441,7 +441,7 @@ width: 24px;
     display: none;
   }
   .divw2{
-margin-top: 40px;
+margin-top: 0px;
   }
 }
 
@@ -785,7 +785,7 @@ padding-right: 5px;
   float: center;
   justify-content: center;
   border-radius: 10px;
-  border: 2px solid;
+  border: 1px solid;
   width: 90%;
 }
 
@@ -810,7 +810,7 @@ padding-right: 5px;
   display: flex;
   float: center;
   justify-content: center;
-  border: 2px solid;
+  border: 1px solid;
   border-radius: 25px;
   margin-top: 10px;
   margin-bottom: 10px;

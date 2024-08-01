@@ -4,10 +4,20 @@ import "./App.css";
 import { PointsContext } from "./PointsContext";
 import { useContext } from "react";
 import video from "./first-video.mp4";
-import api from "./videoAPI";
 import { NameContextE } from "./NameContextE";
 import { AvatarGroup, MenuButton, Avatar, Menu } from "@chakra-ui/react";
 import { NameContext } from "./NameContext";
+import video1 from "./video/1.mp4";
+import video2 from "./video/2.mp4";
+import video3 from "./video/3.mp4";
+import video5 from "./video/5.mp4";
+import video6 from "./video/6.mp4";
+import video8 from "./video/8.mp4";
+import video9 from "./video/9.mp4";
+import video10 from "./video/10.mp4";
+import video11 from "./video/11.mp4";
+import video12 from "./video/12.mp4";
+import axios from "axios";
 
 function PhoneV({ theme }) {
   const name = useContext(NameContext);
@@ -24,6 +34,39 @@ function PhoneV({ theme }) {
     location: "",
     temperature: "",
   });
+  const videos = [
+    {
+      url: video1,
+    },
+    {
+      url: video2,
+    },
+    {
+      url: video3,
+    },
+    {
+      url: video5,
+    },
+    {
+      url: video6,
+    },
+    {
+      url: video8,
+    },
+    {
+      url: video9,
+    },
+    {
+      url: video10,
+    },
+    {
+      url: video11,
+    },
+    {
+      url: video12,
+    },
+  ];
+
   const apiKey = "fd9b980c7bb1e4097ad73994867af5d1";
 
   const getweather = async () => {
@@ -174,16 +217,10 @@ function PhoneV({ theme }) {
     <>
       <div className="lv">
         <div className="divw">
-          {/* <input
-            className={`${theme} select-video`}
-            type="file"
-            accept="video/*"
-            onChange={handleVideoChange}
-          /> */}
           {selectedVideo && (
             <AspectRatio
               maxW="625px"
-              marginTop={"15px"}
+              marginTop="15px"
               ratio={2 / 1}
               position="relative"
               className="aspect-ratio"
@@ -274,12 +311,16 @@ function PhoneV({ theme }) {
           </div>
         </div>
         <div className="video-containerAll divw2">
-          {api.map((match) => (
-            <div className={`${theme} video-container`}>
+          {videos.map((video, index) => (
+            <div key={index} className={`${theme} video-container`}>
               <video
-                onClick={handleScreenClick.bind(this, match.video)}
+                onClick={() => {
+                  handleScreenClick(video.url);
+                  handleVideoChange(video.url);
+                }}
                 onEnded={handleVideoEnd}
-                src={match.video}
+                src={video.url}
+                controls
               ></video>
             </div>
           ))}
