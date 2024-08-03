@@ -229,7 +229,6 @@ export default function Login({ theme }) {
                     <Button
                       id="request-otp"
                       onClick={requestOtp}
-                      onTouchEnd={requestOtp}
                       h="1.75rem"
                       size="sm"
                     >
