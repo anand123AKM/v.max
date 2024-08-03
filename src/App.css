@@ -867,6 +867,8 @@ background-color:#b50000;
   font-weight: bold;
   font-size: large;
   cursor: pointer;
+  margin-left: 1px;
+  margin-top: 2px;
 }
 
 
@@ -1499,14 +1501,16 @@ background-color:#b50000;
 .comboxover {
   max-height: 10px;
   overflow-y: auto;
-  overflow-x: auto;
+    overflow-x: auto;
   padding-left: 20px;
 }
 
 .comboxover::-webkit-scrollbar {
   display: none;
 }
-
+ .comboxover {
+   max-height: 220px;
+ }
 
 
 @media (max-width: 600px) {
