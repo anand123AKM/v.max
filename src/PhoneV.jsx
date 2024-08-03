@@ -280,8 +280,8 @@ function PhoneV({ theme }) {
           <div className="comboxover">
             <div className="comments-list">
               {comments.map((comment, index) => (
-                <div className="comboxover">
-                  <div className="com-box" key={index}>
+                <div key={index} className="comboxover">
+                  <div className="com-box">
                     <Menu>
                       <MenuButton>
                         <AvatarGroup ml={-2} mr={2}>
