@@ -47,30 +47,30 @@ export default function Developer3() {
         <Box className="datasm" p={6}>
           <Stack spacing={0} align={"center"} mb={5}>
             <Heading
-              color={"white"}
+              className="devdata"
               fontSize={"2xl"}
               fontWeight={500}
               fontFamily={"body"}
             >
               Anand Kr. Maurya
             </Heading>
-            <Text color={"green.100"}>MERN Developer</Text>
+            <Text className="green">MERN Developer</Text>
           </Stack>
 
           <Stack direction={"row"} justify={"center"} spacing={6}>
             <Stack spacing={0} align={"center"}>
-              <Text color={"azure"} fontWeight={600}>
+              <Text className="azure" fontWeight={600}>
                 GitHub
               </Text>
-              <Text fontSize={"sm"} color={"gray.500"}>
+              <Text fontSize={"sm"} className="akmgit" color={"gray.400"}>
                 Anand123AKM
               </Text>
             </Stack>
             <Stack spacing={0} align={"center"}>
-              <Text color={"azure"} fontWeight={600}>
+              <Text className="azure" fontWeight={600}>
                 Linkedin
               </Text>
-              <Text fontSize={"sm"} color={"gray.500"}>
+              <Text fontSize={"sm"} className="akmgit" color={"gray.400"}>
                 Anand123AKM
               </Text>
             </Stack>
@@ -86,6 +86,7 @@ export default function Developer3() {
               mt={8}
               bg={useColorModeValue("#151f21", "gray.900")}
               color={"white"}
+              className="akmgfollow"
               rounded={"md"}
               _hover={{
                 transform: "translateY(-2px)",

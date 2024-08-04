@@ -965,7 +965,7 @@
 }
 
 .light .tech{
-  color: #000;
+  color: rgb(180, 0, 0);
 }
 
 .dark .tech{
@@ -985,10 +985,45 @@
   }
 }
 
-.datasm{
-  background-color: #000;
+.dark .datasm{
+background: linear-gradient(to right,
+      rgb(52, 52, 53),
+      rgb(1, 1, 32));
 }
 
+.light .datasm{
+background: linear-gradient(to right,
+      rgb(220, 219, 227),
+      rgb(156, 182, 227));
+    
+}
+
+.dark .green{
+  font-weight: bold;
+  color: greenyellow;
+}
+
+.light .green{
+  font-weight: bold;
+  color: rgb(180, 0, 0);
+}
+
+
+.dark .azure{
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+}
+
+.light .akmgit{
+  font-weight: bold;
+  color: rgb(86, 126, 196);
+}
+
+.light .akmgfollow{
+background: linear-gradient(to right,
+      rgb(168, 158, 227),
+      rgb(95, 139, 216));
+}
 
 .light .databg{
   background: linear-gradient(to right,
@@ -1045,16 +1080,12 @@
 }
 
 .light .designed{
-  color: #000;
+  color: rgb(180, 0, 0);
 }
 
 .dark .designed{
   color: greenyellow;
 }
-
-
-
-
 
 .image-slider {
   width: 35vw;
@@ -1097,4 +1128,20 @@
   max-width: 90%;
   height: 140px;
   margin: auto;
+}
+
+@media (max-width: 600px) {
+  .image-slider .slick-dots {
+    bottom: -50px;
+  }
+}
+
+
+.dark .devdata{
+  font-weight: bold;
+  color: white;
+}
+.light .devdata {
+  font-weight: bold;
+  color: #000;
 }

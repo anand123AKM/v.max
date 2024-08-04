@@ -25,15 +25,15 @@ function Tech() {
           rounded={"lg"}
           p={6}
         >
-          <Avatar margin={5} size={"xl"} src={react} />
-          <Avatar margin={5} size={"xl"} src={js} />
-          <Avatar margin={5} size={"xl"} src={node} />
-          <Avatar margin={5} size={"xl"} src={firebase} />
-          <Avatar margin={5} size={"xl"} src={chakra} />
-          <Avatar margin={5} size={"xl"} src={api} />
-          <Avatar margin={5} size={"xl"} src={mysql} />
-          <Avatar margin={5} size={"xl"} src={express} />
-          <Avatar margin={5} size={"xl"} src={css} />
+          <Avatar className="av" margin={5} size={"xl"} src={react} />
+          <Avatar className="av" margin={5} size={"xl"} src={js} />
+          <Avatar className="av" margin={5} size={"xl"} src={node} />
+          <Avatar className="av" margin={5} size={"xl"} src={firebase} />
+          <Avatar className="av" margin={5} size={"xl"} src={chakra} />
+          <Avatar className="av" margin={5} size={"xl"} src={api} />
+          <Avatar className="av" margin={5} size={"xl"} src={mysql} />
+          <Avatar className="av" margin={5} size={"xl"} src={express} />
+          <Avatar className="av" margin={5} size={"xl"} src={css} />
         </Box>
       </Center>
     </div>
