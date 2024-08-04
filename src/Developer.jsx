@@ -94,7 +94,14 @@ export default function Developer() {
                 bg: "gray.200",
               }}
             >
-              Message
+              <a
+                href="https://www.linkedin.com/in/anand-kr-maurya-akm16"
+                style={{ width: "100%" }}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Message
+              </a>
             </Button>
 
             <Button

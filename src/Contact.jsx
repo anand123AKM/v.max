@@ -42,7 +42,7 @@ function Contact({ theme }) {
 
   return (
     <>
-      <Center>
+      <Center className="contactfull">
         <form className={`${theme} form`}>
           <Center>
             <h1
