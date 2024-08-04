@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { AspectRatio, Box } from "@chakra-ui/react";
+import { AspectRatio, Box, Center } from "@chakra-ui/react";
 import "./App.css";
 import { PointsContext } from "./PointsContext";
 import { useContext } from "react";
@@ -18,6 +18,10 @@ import video10 from "./video/10.mp4";
 import video11 from "./video/11.mp4";
 import video12 from "./video/12.mp4";
 import axios from "axios";
+import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
+import Tech from "./Technology.jsx";
+import Developer from "./Developer.jsx";
+import Devloper3 from "./Devloper2.jsx";
 
 function PhoneV({ theme }) {
   const name = useContext(NameContext);
@@ -213,6 +217,28 @@ function PhoneV({ theme }) {
     },
   };
 
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const [showComment, setShowComment] = useState(false);
+  const [showVideo, setShowVideo] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 800px)");
+    const handleMediaQueryChange = (e) => setIsSmallScreen(e.matches);
+
+    handleMediaQueryChange(mediaQuery);
+    mediaQuery.addListener(handleMediaQueryChange);
+
+    return () => mediaQuery.removeListener(handleMediaQueryChange);
+  }, []);
+
+  const showComments = () => {
+    setShowComment(!showComment);
+  };
+
+  const showVideos = () => {
+    setShowVideo(!showVideo);
+  };
+
   return (
     <>
       <div className="lv">
@@ -267,71 +293,180 @@ function PhoneV({ theme }) {
               </div>
             </AspectRatio>
           )}
-          <div className="comment">
-            <h1>Comments</h1>
-            <input
-              type="text"
-              className="input-comment"
-              value={currentComment}
-              onChange={handleCommentChange}
-              onKeyDown={handleComments}
-            />
-          </div>
-          <div className="comboxover">
-            <div className="comments-list">
-              {comments.map((comment, index) => (
-                <div key={index} className="comboxover">
-                  <div className="com-box">
-                    <Menu>
-                      <MenuButton>
-                        <AvatarGroup ml={-2} mr={2}>
-                          <div className={`channel-logo ${theme}`}>
-                            {CurrentUser ? (
-                              <div className={`channel-logo ${theme}`}>
-                                <>
-                                  {CurrentUser?.result.Name.charAt(
-                                    0
-                                  ).toUpperCase()}
-                                </>
-                              </div>
-                            ) : (
-                              <>
-                                <Avatar bg="teal.500" />
-                              </>
-                            )}
-                          </div>
-                        </AvatarGroup>
-                      </MenuButton>
-                    </Menu>
-                    <div className="com-text"> {comment.text}</div>
+
+          {isSmallScreen ? (
+            <Tabs
+              className="recom"
+              mt={5}
+              mr={12}
+              align="center"
+              defaultIndex={1}
+              variant="soft-rounded"
+              colorScheme="green"
+            >
+              <TabList>
+                <Tab className="comtab">Watch More</Tab>
+                <Tab className="comtab">Comments</Tab>
+              </TabList>
+              <TabPanels>
+                <TabPanel>
+                  <div className="showVideo">
+                    <div className="video-containerAll divw2">
+                      {videos.map((video, index) => (
+                        <div key={index} className={`${theme} video-container`}>
+                          <video
+                            onTouchEnd={() => {
+                              handleScreenClick(video.url);
+                              handleVideoChange(video.url);
+                            }}
+                            onClick={() => {
+                              handleScreenClick(video.url);
+                              handleVideoChange(video.url);
+                            }}
+                            onEnded={handleVideoEnd}
+                            src={video.url}
+                            controls
+                          ></video>
+                        </div>
+                      ))}
+                    </div>
                   </div>
+                </TabPanel>
+                <TabPanel>
+                  <div className="showComment">
+                    <>
+                      <div className="comment">
+                        <input
+                          type="text"
+                          className="input-comment"
+                          value={currentComment}
+                          onChange={handleCommentChange}
+                          onKeyDown={handleComments}
+                        />
+                      </div>
+                      <div className="comboxover">
+                        <div className="comments-list">
+                          {comments.map((comment, index) => (
+                            <div key={index} className="comboxover">
+                              <div className="com-box">
+                                <Menu>
+                                  <MenuButton>
+                                    <AvatarGroup ml={-2} mr={2}>
+                                      <div className={`channel-logo ${theme}`}>
+                                        {CurrentUser ? (
+                                          <div
+                                            className={`channel-logo ${theme}`}
+                                          >
+                                            <>
+                                              {CurrentUser?.result.Name.charAt(
+                                                0
+                                              ).toUpperCase()}
+                                            </>
+                                          </div>
+                                        ) : (
+                                          <>
+                                            <Avatar bg="teal.500" />
+                                          </>
+                                        )}
+                                      </div>
+                                    </AvatarGroup>
+                                  </MenuButton>
+                                </Menu>
+                                <div className="com-text">{comment.text}</div>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </>
+                  </div>
+                </TabPanel>
+              </TabPanels>
+            </Tabs>
+          ) : (
+            <></>
+          )}
+
+          {isSmallScreen ? (
+            <></>
+          ) : (
+            <div>
+              <div className="comment">
+                <h1>Comments</h1>
+                <input
+                  type="text"
+                  className="input-comment"
+                  value={currentComment}
+                  onChange={handleCommentChange}
+                  onKeyDown={handleComments}
+                />
+              </div>
+              <div className="comboxover">
+                <div className="comments-list">
+                  {comments.map((comment, index) => (
+                    <div key={index} className="comboxover">
+                      <div className="com-box">
+                        <Menu>
+                          <MenuButton>
+                            <AvatarGroup ml={-2} mr={2}>
+                              <div className={`channel-logo ${theme}`}>
+                                {CurrentUser ? (
+                                  <div className={`channel-logo ${theme}`}>
+                                    <>
+                                      {CurrentUser?.result.Name.charAt(
+                                        0
+                                      ).toUpperCase()}
+                                    </>
+                                  </div>
+                                ) : (
+                                  <>
+                                    <Avatar bg="teal.500" />
+                                  </>
+                                )}
+                              </div>
+                            </AvatarGroup>
+                          </MenuButton>
+                        </Menu>
+                        <div className="com-text"> {comment.text}</div>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
             </div>
+          )}
+        </div>
+
+        {isSmallScreen ? (
+          <></>
+        ) : (
+          <div className="video-containerAll divw2">
+            {videos.map((video, index) => (
+              <div key={index} className={`${theme} video-container`}>
+                <video
+                  onTouchEnd={() => {
+                    handleScreenClick(video.url);
+                    handleVideoChange(video.url);
+                  }}
+                  onClick={() => {
+                    handleScreenClick(video.url);
+                    handleVideoChange(video.url);
+                  }}
+                  onEnded={handleVideoEnd}
+                  src={video.url}
+                  controls
+                ></video>
+              </div>
+            ))}
           </div>
-        </div>
-        <div className="video-containerAll divw2">
-          {videos.map((video, index) => (
-            <div key={index} className={`${theme} video-container`}>
-              <video
-                onClick={() => {
-                  handleScreenClick(video.url);
-                  handleVideoChange(video.url);
-                }}
-                onEnded={handleVideoEnd}
-                src={video.url}
-                controls
-              ></video>
-            </div>
-          ))}
-        </div>
+        )}
       </div>
-      {showPopup && (
-        <div className="popup-box">
-          <p>Location: {locationData.location}</p>
-          <p>Temperature: {locationData.temperature}</p>
-        </div>
-      )}
+      <br />
+      <br />
+      <Tech />
+      <Center className="designed">Designed By</Center>
+      <Developer />
+      <Devloper3 />
     </>
   );
 }

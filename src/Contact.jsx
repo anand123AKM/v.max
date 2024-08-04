@@ -30,6 +30,16 @@ function Contact({ theme }) {
       setShowAlert(false);
     }, 3000);
   };
+
+  const onsubmit = (e) => {
+    if (!input3.endsWith("@gmail.com")) {
+      alert("Please enter a valid Gmail address");
+    } else {
+      handleClick();
+    }
+    console.log("Form submitted", { input1, input3 });
+  };
+
   return (
     <>
       <Center>
@@ -97,7 +107,9 @@ function Contact({ theme }) {
               variant="outline"
               width="100px"
               mt={8}
-              onClick={handleClick}
+              onClick={() => {
+                onsubmit();
+              }}
             >
               SEND
             </Button>

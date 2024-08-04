@@ -3,6 +3,7 @@ import { Heading, Text, Center, Img } from "@chakra-ui/react";
 import "./App.css";
 import dark from "./image/logo2.png";
 import light from "./image/logo3.png";
+import Slideshow from "./Slider";
 
 function HeaderText({ theme }) {
   return (
@@ -18,6 +19,9 @@ function HeaderText({ theme }) {
           𝔞𝔫𝔡
           <span className="v"> 𝔣𝔞𝔪𝔦𝔩𝔶</span>.
         </Text>
+      </Center>
+      <Center>
+        <Slideshow />
       </Center>
     </>
   );

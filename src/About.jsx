@@ -38,7 +38,7 @@ function About({ theme, setTabIndex }) {
           𝔦𝔣 𝔶𝔬𝔲 𝔥𝔞𝔳𝔢 𝔞𝔫𝔶 𝔰𝔲𝔤𝔤𝔢𝔰𝔱𝔦𝔬𝔫𝔰 𝔣𝔬𝔯 𝔲𝔰 𝔬𝔯 𝔞𝔫𝔶 𝔮𝔲𝔢𝔯𝔶 𝔭𝔩𝔢𝔞𝔰𝔢 𝔠𝔬𝔫𝔱𝔞𝔠𝔱 𝔲𝔰
           𝔥𝔢𝔯𝔢.
           <Button onClick={() => setTabIndex(1)} w={20} h={5} ml={5}>
-            Button
+            𝔪𝔢𝔰𝔰𝔞𝔤𝔢
           </Button>
         </Text>
       </Center>
