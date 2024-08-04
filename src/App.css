@@ -955,6 +955,9 @@
 
 .tech{
   display: block;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
   font-size: 40px;
   margin-top: 40px;
   font-family: 'Courier New', Courier, monospace;
