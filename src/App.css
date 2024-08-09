@@ -10,7 +10,7 @@
 
 .light {
   background: linear-gradient(to right,
-      rgb(225, 224, 232),
+      rgb(224, 222, 236),
       rgb(156, 182, 227));
   color: #000;
 }
@@ -960,6 +960,7 @@
   justify-content: center;
   font-size: 40px;
   margin-top: 40px;
+  font-weight: bolder;
   font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
 }
@@ -1075,7 +1076,7 @@ background: linear-gradient(to right,
   align-items: center;
   margin-top: 40px;
   font-size: 40px;
-  font-weight: bold;
+  font-weight: bolder;
   font-family: 'Courier New', Courier, monospace;
 }
 
