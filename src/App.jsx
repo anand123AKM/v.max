@@ -19,6 +19,18 @@ function App() {
   const [isMaintenanceTime, setIsMaintenanceTime] = useState(false);
 
   useEffect(() => {
+    const handleRightClick = (event) => {
+      event.preventDefault();
+    };
+
+    document.addEventListener("contextmenu", handleRightClick);
+
+    return () => {
+      document.removeEventListener("contextmenu", handleRightClick);
+    };
+  }, []);
+
+  useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
         setIsLoggedIn(true);
