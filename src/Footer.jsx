@@ -37,13 +37,7 @@ const SocialButton = ({ children, label, href }) => {
 
 export default function Footer() {
   return (
-    <Box
-      className="footer"
-      color={useColorModeValue("gray.700", "gray.200")}
-      position="fixed"
-      bottom="0"
-      width="100%"
-    >
+    <Box className="footer" color={useColorModeValue("gray.700", "gray.200")}>
       <Container
         as={Stack}
         maxW={"6xl"}
