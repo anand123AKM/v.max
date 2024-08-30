@@ -3,8 +3,8 @@ import { ZegoUIKitPrebuilt } from "@zegocloud/zego-uikit-prebuilt";
 
 function VideoRoom({ roomCode }) {
   const myMeeting = async (element) => {
-    const appID = 1047006595;
-    const serverSecret = "71c7382609fb15661c54922d6aae17b5";
+    const appID = 1536569376;
+    const serverSecret = "dc12ba4647430d920fc9b18d842f6142";
     const kitToken = ZegoUIKitPrebuilt.generateKitTokenForTest(
       appID,
       serverSecret,
@@ -22,7 +22,7 @@ function VideoRoom({ roomCode }) {
   };
   return (
     <div className="room-page">
-      <div ref={myMeeting} />
+      <div className="rmv" ref={myMeeting} />
     </div>
   );
 }

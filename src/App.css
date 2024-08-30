@@ -879,7 +879,7 @@
 }
 
 .room-code {
-  font-size: 22px;
+  font-size: 18px;
   font-weight: bold;
   border-radius: 5px;
   cursor: pointer;
@@ -906,7 +906,7 @@
 }
 
 .room-button {
-  font-size: 20px;
+  font-size: 15px;
   font-weight: bold;
   border-radius: 5px;
   cursor: pointer;
@@ -917,7 +917,7 @@
   border-radius: 25px;
   margin-top: 15px;
   margin-bottom: 10px;
-  padding: 5px;
+  padding: 4px;
 }
 
 .light .room-button {
@@ -1145,4 +1145,159 @@ background: linear-gradient(to right,
 .light .devdata {
   font-weight: bold;
   color: #000;
+}
+
+.rmv{
+  width: 75%;
+  height: 85vh;
+}
+.room-page{
+    display: flex;
+      justify-content: center;
+      align-items: center;
+}
+
+@media screen and (max-width:760px) {
+  .rmv{
+    width: 100%;
+    height: 75vh;
+  }
+}
+
+.cor2{
+display: flex;
+flex-direction: row;
+justify-content: center;
+}
+.cor{
+  width: 40%;
+    height: 30px;
+    border-radius: 25px;
+}
+.rew{
+  width: 90px;
+  height: 30px;
+  padding-top: 3px;
+  margin-top: 0;
+  margin-left: 10px;
+  color: #000000 !important;
+  background-color: rgb(55, 218, 0) !important;
+}
+.wht1{
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.what123{
+  margin-top: 30px;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    margin-bottom: 35px;
+}
+
+@media screen and (max-width:800px) {
+  .what123{
+    width: 90%;
+  } 
+  
+}
+
+@media screen and (min-width:800px) {
+  .what123{
+    width: 45%;
+  } 
+}
+
+
+.light .what123 {
+  background: linear-gradient(to right,
+      rgb(220, 219, 227),
+      rgb(156, 182, 227));
+}
+
+.dark .what123 {
+  background: linear-gradient(to right,
+      rgb(52, 52, 53),
+      rgb(1, 1, 32));
+}
+
+
+.rmc3{
+  background: none !important;
+}
+
+.rmc{
+  font-size: larger;
+  font-weight: bold;
+  margin-top: -15px;
+  padding-top: 7px;
+}
+
+.light .rmc{
+  color: #0010c2;
+} 
+
+.dark .rmc{
+  color: rgb(0, 232, 69);
+}
+
+
+.rmc123{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.rew1234{
+    margin-top: -6px;
+  width: 60px;
+  height: 26px;
+  font-weight: bold;
+  margin-left: 10px;
+  border-radius: 25px;
+  color: #000000 !important;
+  background-color: rgb(55, 218, 0) !important;
+}
+
+.rew1234:hover{
+  background-color: rgb(131, 0, 13) !important;
+  color: white !important;
+}
+
+.light .error-message{
+  color: #9a0000;
+  font-weight: bold;
+}
+
+.dark .error-message{
+  color: rgb(220, 220, 220);
+  font-weight: bold;
+}
+
+.wp{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.share{
+font-weight: bolder;
+font-size: 20px;
+margin-right: 20px;
+}
+
+.light .share{
+  color: #000;
+}
+
+.dark .share{
+  color: white;
 }
