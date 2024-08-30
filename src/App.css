@@ -1152,14 +1152,16 @@ background: linear-gradient(to right,
   height: 85vh;
 }
 .room-page{
-    display: flex;
+      display: flex;
       justify-content: center;
       align-items: center;
+      overflow: hidden;
 }
+
 
 @media screen and (max-width:760px) {
   .rmv{
-    width: 100%;
+    width: 750%;
     height: 75vh;
   }
 }
