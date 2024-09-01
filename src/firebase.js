@@ -1,11 +1,14 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
+import { getStorage, ref, deleteObject } from "firebase/storage";
 import {
   getFirestore,
   collection,
   doc,
   setDoc,
   getDoc,
+  getDocs,
+  deleteDoc,
 } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -20,5 +23,29 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
+const storage = getStorage(app);
 
-export { auth, db, collection, doc, setDoc, getDoc };
+export const deleteVideo = async (videoId, videoURL) => {
+  try {
+    const videoDocRef = doc(db, "videos", videoId);
+    await deleteDoc(videoDocRef);
+    const videoRef = ref(storage, videoURL);
+    await deleteObject(videoRef);
+
+    console.log("Video deleted successfully");
+  } catch (error) {
+    console.error("Error deleting video: ", error);
+  }
+};
+
+export {
+  storage,
+  auth,
+  db,
+  collection,
+  doc,
+  setDoc,
+  getDoc,
+  deleteDoc,
+  getDocs,
+};
