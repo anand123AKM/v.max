@@ -12,10 +12,12 @@ function Home({ theme }) {
       <HeaderText theme={theme} />
       <Tabs variant="soft-rounded" colorScheme="red" defaultIndex={0}>
         <TabList className="ml" mb={3} mt={12}>
-          <Tab mr={2} className="tabB tab1234">
+          <Tab mr={2} className="tabB">
             OUR PAGE
           </Tab>
-          <Tab className="tabB">PUBLIC</Tab>
+          <Tab mr={2} className="tabB">
+            PUBLIC
+          </Tab>
           <Tab className="tabB">Video Call</Tab>
         </TabList>
         <TabPanels>

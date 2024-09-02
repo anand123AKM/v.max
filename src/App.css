@@ -96,7 +96,7 @@
 
 
 .header2 {
-  /* margin-left: 25px; */
+  margin-left: 20px;
   width: 180px;
   height: 60px;
   display: flex;
@@ -180,9 +180,6 @@
     width: 225px;
   }
 
-  /* .aspect-ratio {
-    margin-left: 25px;
-  } */
 
   .select-video {
     margin-left: 25px;
@@ -280,7 +277,7 @@
   width: 120px;
   border-radius: 25px;
   padding: 5px;
-  margin-left: 10px;
+  /* margin-left: 10px; */
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -290,9 +287,6 @@
   border: 1px solid;
 }
 
-.tab1234 {
-  margin-left: 0px;
-}
 
 /* ------------------------------------------------------------------------------------ */
 
@@ -687,7 +681,7 @@
   }
 
   .ml {
-    margin-left: 0px;
+    margin-left: -5px;
   }
 
   .tabB {
@@ -696,7 +690,7 @@
 }
 
 .ml {
-  margin-left: 25px;
+  margin-left: 15px;
 }
 
 .com-box {

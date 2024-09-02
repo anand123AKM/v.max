@@ -392,7 +392,7 @@ function PhoneV({ theme }) {
           ) : (
             <div>
               <div className="comment">
-                <h1>Any Questions</h1>
+                <h1>Any Ques</h1>
                 <input
                   type="text"
                   className="input-comment"
