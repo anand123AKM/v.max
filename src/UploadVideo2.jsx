@@ -2,18 +2,8 @@ import React, { useState, useEffect } from "react";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { storage, db, collection, doc, setDoc, getDocs } from "./firebase";
 import "./Shorts.css";
-import {
-  Tabs,
-  TabList,
-  Tab,
-  TabPanels,
-  TabPanel,
-  Center,
-} from "@chakra-ui/react";
-import VideoUploadWithDetails1 from "./UploadVideo1";
-import UploadVideo2 from "./UploadVideo2";
 
-const VideoUploadWithDetails = ({ theme }) => {
+function UploadVideo2({ theme }) {
   const [file, setFile] = useState(null);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -133,70 +123,47 @@ const VideoUploadWithDetails = ({ theme }) => {
   );
 
   return (
-    <>
-      <div>
-        <h2 className={`upl1 ${theme} `}>UPLOAD VIDEO</h2>
-        <input
-          className={`upl2 ${theme} `}
-          type="text"
-          placeholder="Title (Max 20 characters)"
-          value={title}
-          onChange={(e) => {
-            if (e.target.value.length <= 20) {
-              setTitle(e.target.value);
-            }
+    <div>
+      {loading ? (
+        <p
+          style={{
+            color: "white",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            fontSize: "1rem",
+            fontWeight: "bold",
           }}
-        />
-        <div className="upvdl">
-          <input
-            id="file-input"
-            className="file-input"
-            type="file"
-            accept="video/*"
-            onChange={handleFileChange}
-          />
-          <label htmlFor="file-input" className={`custom-file-input `}>
-            {file ? file.name : "Choose File"}
-          </label>
-          <button
-            className="upvidob"
-            onClick={handleUpload}
-            disabled={!title.trim() || !file}
-          >
-            Upload
-          </button>
+        >
+          Loading videos...
+        </p>
+      ) : otherVideos.length > 0 ? (
+        <div className="vido1234">
+          {otherVideos.map((video) => (
+            <div className="longv">
+              <div key={video.id}>
+                <video controls src={video.videoURL} />
+                <h3 className={`vidtitle ${theme}`}>{video.title}</h3>
+              </div>
+            </div>
+          ))}
         </div>
-
-        <div className={`upvidop ${theme}`}>
-          Upload Progress: {uploadProgress}%
-        </div>
-        {videoURL && (
-          <div>
-            <video className="instv" controls src={videoURL} />
-          </div>
-        )}
-      </div>
-
-      <Tabs variant="soft-rounded" colorScheme="green" defaultIndex={1}>
-        <Center>
-          <TabList className="ml" mb={3} mt={12}>
-            <Tab mr={2} className="tabB tab1234">
-              VIDEOS
-            </Tab>
-            <Tab className="tabB">V-MIN</Tab>
-          </TabList>
-        </Center>
-        <TabPanels>
-          <TabPanel>
-            <UploadVideo2 theme={theme} />
-          </TabPanel>
-          <TabPanel>
-            <VideoUploadWithDetails1 theme={theme} />
-          </TabPanel>
-        </TabPanels>
-      </Tabs>
-    </>
+      ) : (
+        <p
+          style={{
+            color: "white",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            fontSize: "1rem",
+            fontWeight: "bold",
+          }}
+        >
+          Videos not available
+        </p>
+      )}
+    </div>
   );
-};
+}
 
-export default VideoUploadWithDetails;
+export default UploadVideo2;

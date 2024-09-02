@@ -5,7 +5,6 @@ import "./App.css";
 import HeaderText from "./HeaderText";
 import VideoCall from "./videoCall";
 import VideoUploadWithDetails from "./UploadVideo.jsx";
-import VideoUploadWithDetails1 from "./UploadVideo1.jsx";
 
 function Home({ theme }) {
   return (
@@ -17,7 +16,6 @@ function Home({ theme }) {
             OUR PAGE
           </Tab>
           <Tab className="tabB">PUBLIC</Tab>
-          <Tab className="tabB">V-MIN</Tab>
           <Tab className="tabB">Video Call</Tab>
         </TabList>
         <TabPanels>
@@ -26,9 +24,6 @@ function Home({ theme }) {
           </TabPanel>
           <TabPanel>
             <VideoUploadWithDetails theme={theme} />
-          </TabPanel>
-          <TabPanel>
-            <VideoUploadWithDetails1 theme={theme} />
           </TabPanel>
           <TabPanel>
             <VideoCall theme={theme} />

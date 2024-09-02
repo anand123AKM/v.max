@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { storage, db, collection, doc, setDoc, getDocs } from "./firebase";
 import "./Shorts.css";
-import { deleteVideo } from "./firebase";
 
 const VideoUploadWithDetails = ({ theme }) => {
   const [file, setFile] = useState(null);
@@ -111,49 +110,44 @@ const VideoUploadWithDetails = ({ theme }) => {
 
   return (
     <div>
-      <div className="upl7">
-        <h2 className={`upl1 ${theme} `}>V-MIN VIDEOS</h2>
-      </div>
-      <div>
-        {loading ? (
-          <p
-            style={{
-              color: "white",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              fontSize: "1rem",
-              fontWeight: "bold",
-            }}
-          >
-            Loading videos...
-          </p>
-        ) : portraitVideos.length > 0 ? (
-          <div className="vido123">
-            {portraitVideos.map((video) => (
-              <div className="vido">
-                <div className="vido1" key={video.id}>
-                  <video className="vcx" controls src={video.videoURL} />
-                  <h3 className={`vidtitle  ${theme}`}>{video.title}</h3>
-                </div>
+      {loading ? (
+        <p
+          style={{
+            color: "white",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            fontSize: "1rem",
+            fontWeight: "bold",
+          }}
+        >
+          Loading videos...
+        </p>
+      ) : portraitVideos.length > 0 ? (
+        <div className="vido123">
+          {portraitVideos.map((video) => (
+            <div className="vido">
+              <div className="vido1" key={video.id}>
+                <video className="vcx" controls src={video.videoURL} />
+                <h3 className={`vidtitle  ${theme}`}>{video.title}</h3>
               </div>
-            ))}
-          </div>
-        ) : (
-          <p
-            style={{
-              color: "white",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              fontSize: "1rem",
-              fontWeight: "bold",
-            }}
-          >
-            V-MIN not available
-          </p>
-        )}
-      </div>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <p
+          style={{
+            color: "white",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            fontSize: "1rem",
+            fontWeight: "bold",
+          }}
+        >
+          V-MIN not available
+        </p>
+      )}
     </div>
   );
 };
