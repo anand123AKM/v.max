@@ -693,6 +693,14 @@
   margin-left: 15px;
 }
 
+@media screen and (max-width:350px) {
+  .tabB {
+width: 100px;
+font-size: 30px;
+  }
+  
+}
+
 .com-box {
   display: flex;
   flex-direction: row;
