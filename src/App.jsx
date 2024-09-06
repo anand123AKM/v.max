@@ -19,29 +19,6 @@ function App() {
   const [isMaintenanceTime, setIsMaintenanceTime] = useState(false);
 
   useEffect(() => {
-    const redirectToBrowser = () => {
-      const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-      const inIframe = window.self !== window.top;
-      const inApp = /FBAN|FBAV|Instagram|LinkedIn|Twitter/i.test(userAgent);
-      if (inIframe || inApp) {
-        const url = "https://v-max.netlify.app";
-        if (/android/i.test(userAgent)) {
-          window.location.href = url;
-        } else if (/iPhone|iPad|iPod/i.test(userAgent)) {
-          window.location.href = url;
-          setTimeout(() => {
-            window.location.href = "https://v-max.netlify.app";
-          }, 25);
-        } else {
-          window.location.href = url;
-        }
-      }
-    };
-
-    redirectToBrowser();
-  }, []);
-
-  useEffect(() => {
     const handleRightClick = (event) => {
       event.preventDefault();
     };
