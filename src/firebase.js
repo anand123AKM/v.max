@@ -1,4 +1,5 @@
 import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
 import { getStorage, ref, deleteObject } from "firebase/storage";
 import {
@@ -12,15 +13,17 @@ import {
 } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCqHJZXLdJHlxDV8t9pRIA_tOn7oreUCM0",
-  authDomain: "car-racing-57ff4.firebaseapp.com",
-  projectId: "car-racing-57ff4",
-  storageBucket: "car-racing-57ff4.appspot.com",
-  messagingSenderId: "592006086642",
-  appId: "1:592006086642:web:6620d741b227943202356b",
+  apiKey: "AIzaSyD6yg9GB0xPQAglYEkq_OvwyK6oJkiTnNs",
+  authDomain: "vmax-6a873.firebaseapp.com",
+  projectId: "vmax-6a873",
+  storageBucket: "vmax-6a873.appspot.com",
+  messagingSenderId: "180202539858",
+  appId: "1:180202539858:web:eb6d65409c24e67104888b",
+  measurementId: "G-CF51DQQN5L",
 };
 
 const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 const auth = getAuth(app);
 const db = getFirestore(app);
 const storage = getStorage(app);

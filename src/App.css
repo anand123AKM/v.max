@@ -1304,3 +1304,11 @@ margin-right: 20px;
   color: white;
 }
 
+
+.mess{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
