@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { storage, db, collection, doc, setDoc, getDocs } from "./firebase";
+import { collection, doc, setDoc, getDocs } from "firebase/firestore";
+import { storage, db } from "./firebase";
 import "./Shorts.css";
 
-const VideoUploadWithDetails = ({ theme }) => {
+function UploadVideo1({ theme }) {
   const [file, setFile] = useState(null);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -12,6 +13,7 @@ const VideoUploadWithDetails = ({ theme }) => {
   const [videos, setVideos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+
   useEffect(() => {
     const fetchVideos = async () => {
       setLoading(true);
@@ -24,6 +26,7 @@ const VideoUploadWithDetails = ({ theme }) => {
         }));
         setVideos(videoList);
       } catch (error) {
+        setError("Error fetching videos: " + error.message);
         console.error("Error fetching videos: ", error);
       } finally {
         setLoading(false);
@@ -150,6 +153,6 @@ const VideoUploadWithDetails = ({ theme }) => {
       )}
     </div>
   );
-};
+}
 
-export default VideoUploadWithDetails;
+export default UploadVideo1;

@@ -67,14 +67,11 @@ function Profile({ theme, setTabIndex }) {
       try {
         const userDocRef = doc(db, "users", user.uid);
         const userDoc = await getDoc(userDocRef);
-        console.log("User data fetched: ", userDoc);
 
         if (userDoc.exists()) {
           const userData = userDoc.data();
           setStoredName(user.displayName);
           nameValue(user.displayName);
-          console.log(storedName);
-          setStoredPoints(userData.points || 0);
           console.log("User data fetched successfully:", userData);
         } else {
           console.log("No such document!");
