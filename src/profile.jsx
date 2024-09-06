@@ -14,6 +14,8 @@ import { NameContext } from "./NameContext";
 import { getAuth, signOut } from "firebase/auth";
 import { NameContextE } from "./NameContextE";
 import { EmailContext } from "./NameContext";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "./firebase";
 
 function Profile({ theme, setTabIndex }) {
   const name = useContext(NameContext);
@@ -23,13 +25,6 @@ function Profile({ theme, setTabIndex }) {
 
   const [storedName, setStoredName] = useState("");
   const [storedPoints, setStoredPoints] = useState(0);
-
-  const CurrentUser = {
-    result: {
-      Name: name || nameValue || storedName,
-      joinedOn: "2021-09-01T00:00:00.000Z",
-    },
-  };
 
   const loginDropDown = () => {
     console.log("Login Drop Down");
@@ -63,6 +58,42 @@ function Profile({ theme, setTabIndex }) {
     if (name || nameValue) localStorage.setItem("name", name || nameValue);
     if (points) localStorage.setItem("points", points);
   }, [name, nameValue, points]);
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      const user = auth.currentUser;
+      if (!user) return;
+
+      try {
+        const userDocRef = doc(db, "users", user.uid);
+        const userDoc = await getDoc(userDocRef);
+        console.log("User data fetched: ", userDoc);
+
+        if (userDoc.exists()) {
+          const userData = userDoc.data();
+          setStoredName(user.displayName);
+          nameValue(user.displayName);
+          console.log(storedName);
+          setStoredPoints(userData.points || 0);
+          console.log("User data fetched successfully:", userData);
+        } else {
+          console.log("No such document!");
+          setStoredName(user.displayName);
+        }
+      } catch (error) {
+        console.error("Error fetching user data: ", error);
+      }
+    };
+
+    fetchUserData();
+  }, [auth.currentUser]);
+
+  const CurrentUser = {
+    result: {
+      Name: storedName,
+      joinedOn: "2021-09-01T00:00:00.000Z",
+    },
+  };
 
   return (
     <>

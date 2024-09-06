@@ -22,6 +22,9 @@ import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 import Tech from "./Technology.jsx";
 import Developer from "./Developer.jsx";
 import Devloper3 from "./Devloper2.jsx";
+import { getAuth } from "firebase/auth";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "./firebase";
 
 function PhoneV({ theme }) {
   const name = useContext(NameContext);
@@ -32,6 +35,7 @@ function PhoneV({ theme }) {
   const [showQualitySelector, setShowQualitySelector] = useState(true);
   const [showQualityOptions, setShowQualityOptions] = useState(false);
   const [comments, setComments] = useState([]);
+  const [storedName, setStoredName] = useState("");
   const [currentComment, setCurrentComment] = useState("");
   const [showPopup, setShowPopup] = useState(false);
   const [locationData, setLocation] = useState({
@@ -210,9 +214,40 @@ function PhoneV({ theme }) {
     }
   };
 
+  const auth = getAuth();
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      const user = auth.currentUser;
+      if (!user) return;
+
+      try {
+        const userDocRef = doc(db, "users", user.uid);
+        const userDoc = await getDoc(userDocRef);
+        console.log("User data fetched: ", userDoc);
+
+        if (userDoc.exists()) {
+          const userData = userDoc.data();
+          setStoredName(user.displayName);
+          nameValue(user.displayName);
+          console.log(storedName);
+          setStoredPoints(userData.points || 0);
+          console.log("User data fetched successfully:", userData);
+        } else {
+          console.log("No such document!");
+          setStoredName(user.displayName);
+        }
+      } catch (error) {
+        console.error("Error fetching user data: ", error);
+      }
+    };
+
+    fetchUserData();
+  }, [auth.currentUser]);
+
   const CurrentUser = {
     result: {
-      Name: name || nameValue,
+      Name: storedName,
       joinedOn: "2021-09-01T00:00:00.000Z",
     },
   };
