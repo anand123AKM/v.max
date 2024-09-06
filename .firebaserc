@@ -1,5 +1,9 @@
 {
   "projects": {
-    "default": "car-racing-57ff4"
-  }
+    "default": "car-racing-57ff4",
+    "v-max": "vmax-6a873"
+  },
+  "targets": {},
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
 }
