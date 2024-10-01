@@ -164,45 +164,6 @@ function UploadVideo1({ theme }) {
     (video) => video.aspectRatio === "portrait"
   );
 
-  const [fanbase, setFanbase] = useState(0);
-  useEffect(() => {
-    const fetchUserData = async () => {
-      const user = auth.currentUser;
-      if (!user) return;
-
-      try {
-        const userDocRef = doc(db, "users", user.uid);
-        const userDoc = await getDoc(userDocRef);
-
-        if (userDoc.exists()) {
-          const userData = userDoc.data();
-          setFanbase(userData.fanbase);
-        } else {
-          setStoredName(user.displayName || user.email || "Anonymous");
-        }
-      } catch (error) {
-        console.error("Error fetching user data: ", error);
-      }
-    };
-
-    fetchUserData();
-  }, [auth.currentUser]);
-
-  const fanbaseData = async () => {
-    const user = auth.currentUser;
-    if (!user) {
-      setError("You must be logged in to upload a video.");
-      return;
-    }
-    const fanbaseRef = doc(db, "users", user.uid);
-    await setDoc(fanbaseRef, {
-      fanbase: fanbase + 1,
-    });
-    setFanbase(fanbase + 1);
-    console.log("Fanbase updated successfully!");
-    console.log("Fanbase count:", fanbase);
-  };
-
   return (
     <div>
       {loading ? (
@@ -225,10 +186,7 @@ function UploadVideo1({ theme }) {
               <div className="vido1" key={video.id}>
                 <video className="vcx" controls src={video.videoURL} />
                 <h3 className={`vidtitle123 vidtitle ${theme}`}>
-                  <span
-                    onClick={() => fanbaseData()}
-                    className={`channel-logo channel12 ${theme}`}
-                  >
+                  <span className={`channel-logo channel12 ${theme}`}>
                     {video.uploader?.charAt(0).toUpperCase()}{" "}
                     {/* Display uploader's initial */}
                   </span>
