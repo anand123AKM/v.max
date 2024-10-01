@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import { useState, useContext, useEffect } from "react";
 import { AuthContext } from "./AuthContext";
 import { NameContextE } from "./NameContextE";
 import { EmailContext } from "./NameContext";
@@ -12,7 +12,7 @@ import { doc, setDoc } from "firebase/firestore";
 import { Center, FormLabel, Input, Button } from "@chakra-ui/react";
 import "./App.css";
 
-const Login = ({ theme }) => {
+const Login = (theme) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isRegistering, setIsRegistering] = useState(false);
@@ -79,7 +79,7 @@ const Login = ({ theme }) => {
     <Center>
       <div className={`${theme} form`}>
         <Center>
-          <h1 variant="outline" mt={8} className={`${theme} contact`}>
+          <h1 style={{ marginTop: "8px" }} className={`${theme} contact`}>
             {isRegistering ? "Sign Up" : "Login"}
           </h1>
         </Center>

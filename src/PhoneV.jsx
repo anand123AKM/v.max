@@ -231,7 +231,6 @@ function PhoneV({ theme }) {
           nameValue(user.displayName);
           console.log("User data fetched successfully:", userData);
         } else {
-          console.log("No such document!");
           setStoredName(user.displayName);
         }
       } catch (error) {

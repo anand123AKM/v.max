@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { storage, db, collection, doc, setDoc, getDocs } from "./firebase";
+import { getAuth } from "firebase/auth"; // Import Firebase Auth
 import "./Shorts.css";
 import {
   Tabs,
@@ -22,6 +23,8 @@ const VideoUploadWithDetails = ({ theme }) => {
   const [videos, setVideos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+
+  const auth = getAuth(); // Initialize Firebase Auth
 
   useEffect(() => {
     const fetchVideos = async () => {
@@ -88,6 +91,16 @@ const VideoUploadWithDetails = ({ theme }) => {
 
     if (!file) return;
 
+    const currentUser = auth.currentUser; // Get the current user
+
+    if (!currentUser) {
+      setError("You must be logged in to upload a video.");
+      return;
+    }
+
+    const uploaderName =
+      currentUser.displayName || currentUser.email || "Anonymous"; // Get uploader name or email
+
     const storageRef = ref(storage, `videos/${file.name}`);
     const uploadTask = uploadBytesResumable(storageRef, file);
 
@@ -115,6 +128,8 @@ const VideoUploadWithDetails = ({ theme }) => {
             description,
             videoURL: downloadURL,
             aspectRatio: ratioType,
+            uploader: uploaderName, // Include uploader's name
+            uploaderId: currentUser.uid, // Optionally, include uploader's ID
           });
           fetchVideos();
         } catch (uploadError) {
