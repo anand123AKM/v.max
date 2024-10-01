@@ -18,17 +18,17 @@ function App() {
   const [theme, setTheme] = useState("dark");
   const [isMaintenanceTime, setIsMaintenanceTime] = useState(false);
 
-  // useEffect(() => {
-  //   const handleRightClick = (event) => {
-  //     event.preventDefault();
-  //   };
+  useEffect(() => {
+    const handleRightClick = (event) => {
+      event.preventDefault();
+    };
 
-  //   document.addEventListener("contextmenu", handleRightClick);
+    document.addEventListener("contextmenu", handleRightClick);
 
-  //   return () => {
-  //     document.removeEventListener("contextmenu", handleRightClick);
-  //   };
-  // }, []);
+    return () => {
+      document.removeEventListener("contextmenu", handleRightClick);
+    };
+  }, []);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
@@ -91,15 +91,15 @@ function App() {
       <NameContextE.Provider value={{ nameValue, SetnameValue }}>
         <NameContext.Provider value={name}>
           <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
-            <div className={`main-div ${theme}`}>
-              {isLoggedIn ? (
+            {isLoggedIn ? (
+              <div className={`main-div ${theme}`}>
                 <Navbar setTheme={setTheme} theme={theme} />
-              ) : (
-                <div className="log">
-                  <Login theme={theme} />
-                </div>
-              )}
-            </div>
+              </div>
+            ) : (
+              <div className={`log ${theme}`}>
+                <Login theme={theme} />
+              </div>
+            )}
           </AuthContext.Provider>
         </NameContext.Provider>
       </NameContextE.Provider>
