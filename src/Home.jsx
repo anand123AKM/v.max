@@ -11,7 +11,7 @@ function Home({ theme }) {
     <>
       <HeaderText theme={theme} />
       <Tabs variant="soft-rounded" colorScheme="red" defaultIndex={0}>
-        <TabList className="ml" mb={3} mt={12}>
+        <TabList className="ml" ml={0} mb={3} mt={12}>
           <Tab mr={2} className="tabB">
             OUR PAGE
           </Tab>
