@@ -104,6 +104,7 @@ function Profile({ theme, setTabIndex }) {
               user.email ||
               "Anonymous"
           );
+
           setFanbase(userData.fanbase);
         } else {
           setStoredName(user.displayName || user.email || "Anonymous");

@@ -52,6 +52,7 @@ const VideoUploadWithDetails = ({ theme }) => {
 
     if (selectedFile && selectedFile.size > 25 * 1024 * 1024) {
       setError("File size exceeds the 25 MB limit.");
+      alert("File size exceeds the 25 MB limit");
       setFile(null);
     } else {
       setError("");
@@ -164,13 +165,13 @@ const VideoUploadWithDetails = ({ theme }) => {
         />
         <div className="upvdl">
           <input
-            id="file-input"
+            id="file-input1"
             className="file-input"
             type="file"
             accept="video/*"
             onChange={handleFileChange}
           />
-          <label htmlFor="file-input" className={`custom-file-input `}>
+          <label htmlFor="file-input1" className={`custom-file-input `}>
             {file ? file.name : "Choose File"}
           </label>
           <button

@@ -21,7 +21,7 @@ const Login = (theme) => {
   const { SetemailValue } = useContext(EmailContext);
   const { SetnameValue } = useContext(NameContextE);
   const { setIsLoggedIn } = useContext(AuthContext);
-
+  const fanbase = 0;
   const handleSignUp = async (e) => {
     e.preventDefault();
     try {
@@ -38,6 +38,7 @@ const Login = (theme) => {
       await setDoc(doc(db, "users", userId), {
         name: name,
         email: email,
+        fanbase: fanbase,
       });
       console.log("User profile document successfully created!");
       setIsLoggedIn(true);
