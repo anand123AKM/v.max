@@ -3,8 +3,8 @@ import { ZegoUIKitPrebuilt } from "@zegocloud/zego-uikit-prebuilt";
 
 function VideoRoom({ roomCode }) {
   const myMeeting = async (element) => {
-    const appID = 246470804;
-    const serverSecret = "f689a8a39404cf3a51fb30179886a21f";
+    const appID = Number(import.meta.env.VITE_APP_ID);
+    const serverSecret = import.meta.env.VITE_VIDEO_CALL_API_KEY;
     const kitToken = ZegoUIKitPrebuilt.generateKitTokenForTest(
       appID,
       serverSecret,
