@@ -18,17 +18,17 @@ function App() {
   const [theme, setTheme] = useState("dark");
   const [isMaintenanceTime, setIsMaintenanceTime] = useState(false);
 
-  // useEffect(() => {
-  //   const handleRightClick = (event) => {
-  //     event.preventDefault();
-  //   };
+  useEffect(() => {
+    const handleRightClick = (event) => {
+      event.preventDefault();
+    };
 
-  //   document.addEventListener("contextmenu", handleRightClick);
+    document.addEventListener("contextmenu", handleRightClick);
 
-  //   return () => {
-  //     document.removeEventListener("contextmenu", handleRightClick);
-  //   };
-  // }, []);
+    return () => {
+      document.removeEventListener("contextmenu", handleRightClick);
+    };
+  }, []);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
