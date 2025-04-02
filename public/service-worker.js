@@ -5,7 +5,6 @@ const urlsToCache = [
   "/css/style.css",
   "/js/script.js",
   "/logo.png",
-  "/manifest.json",
   // Add other assets that should be available offline
 ];
 
