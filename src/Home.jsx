@@ -3,8 +3,8 @@ import { Tabs, TabList, Tab, TabPanels, TabPanel } from "@chakra-ui/react";
 import PhoneV from "./PhoneV";
 import "./App.css";
 import HeaderText from "./HeaderText";
-import VideoCall from "./videoCall";
 import VideoUploadWithDetails from "./UploadVideo.jsx";
+import Vchat from "./V-chat.jsx";
 
 function Home({ theme }) {
   return (
@@ -18,7 +18,7 @@ function Home({ theme }) {
           <Tab mr={2} className="tabB">
             PUBLIC
           </Tab>
-          <Tab className="tabB">Video Call</Tab>
+          <Tab className="tabB">V-CHAT</Tab>
         </TabList>
         <TabPanels>
           <TabPanel>
@@ -28,7 +28,7 @@ function Home({ theme }) {
             <VideoUploadWithDetails theme={theme} />
           </TabPanel>
           <TabPanel>
-            <VideoCall theme={theme} />
+            <Vchat theme={theme} />
           </TabPanel>
         </TabPanels>
       </Tabs>

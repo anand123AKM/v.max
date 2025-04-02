@@ -1362,3 +1362,58 @@ margin-right: 20px;
 }
 
 
+.chatvat{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 15px;
+  margin: 10px;
+}
+
+.chatvat1{
+  margin: 10px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.light .chatvat1{
+  color: #000;
+}
+
+.dark .chatvat1{
+  color: white;
+}
+
+.chatvat2{
+  margin-bottom: 10px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.light .chatvat2{
+  color: #000;
+}
+
+.dark .chatvat2{
+  color: white;
+}
+
+.chatvat3{
+  margin: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 4px 7px;
+  border-radius: 25px;
+}
+
+.light .chatvat3{
+ color: rgb(37, 29, 29);
+  background-color: #ff0000;
+}
+
+.dark .chatvat3{
+  color: rgb(0, 0, 0);
+  background-color: rgb(55, 255, 0);
+}
