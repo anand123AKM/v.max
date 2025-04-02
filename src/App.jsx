@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Navbar from "./Navbar.jsx";
@@ -14,9 +15,8 @@ function App() {
   const [nameValue, SetnameValue] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [name, setName] = useState("");
-  const [userId, setUserId] = useState(null);
+  const [, setUserId] = useState(null);
   const [theme, setTheme] = useState("dark");
-  const [isMaintenanceTime, setIsMaintenanceTime] = useState(false);
 
   useEffect(() => {
     const handleRightClick = (event) => {
@@ -73,8 +73,6 @@ function App() {
           currentHour < 12
         ) {
           setTheme("light");
-        } else if (currentHour === 23) {
-          setIsMaintenanceTime(true);
         } else {
           setTheme("dark");
         }
